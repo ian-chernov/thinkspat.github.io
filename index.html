@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Geometry Editor</title>
+
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="map"></div>
+  <canvas id="canvas"></canvas>
+
+  <!-- TOP RIGHT TOOLBAR (SINGLE STRIP) -->
+  <div id="toolbar">
+
+    <select id="mode">
+      <option value="explore" data-i18n="explore">Explore</option>
+      <option value="points" data-i18n="points">Points</option>
+      <option value="sector" data-i18n="sector">Sector</option>
+      <option value="line" data-i18n="line">Line</option>
+      <option value="text" data-i18n="text">Text</option>
+      <option value="polygon" data-i18n="polygon">Polygon</option>
+      <option value="move" data-i18n="move">Move</option>
+      <option value="delete" data-i18n="delete">Delete</option>
+    </select>
+
+    <!-- MODE-SPECIFIC OPTIONS -->
+    <div id="tool-options">
+
+      <!-- POINTS -->
+      <div class="mode-options" data-mode="points">
+        <select id="point-color"></select>
+        <select id="point-symbol">
+          <option value="circle">Circle</option>
+          <option value="triangle">Triangle</option>
+          <option value="square">Square</option>
+        </select>
+      </div>
+
+      <!-- LINE -->
+      <div class="mode-options" data-mode="line">
+        <select id="line-color"></select>
+        <select id="line-style">
+          <option value="solid">Solid</option>
+          <option value="dashed">Dashed</option>
+        </select>
+      </div>
+
+      <!-- POLYGON -->
+      <div class="mode-options" data-mode="polygon">
+        <select id="polygon-color"></select>
+      </div>
+
+      <!-- SECTOR -->
+      <div class="mode-options" data-mode="sector">
+        <select id="sector-color"></select>
+        <input
+          id="sector-angle"
+          type="number"
+          min="1"
+          max="360"
+          step="1"
+          value="60"
+        />
+      </div>
+
+      <!-- TEXT -->
+      <div class="mode-options" data-mode="text">
+        <label>
+          Text
+          <input id="text-value" type="text" />
+        </label>
+
+        <label>
+          Color
+          <select id="text-color"></select>
+        </label>
+
+        <label>
+          Size
+          <input id="text-size" type="number" min="8" max="72" value="14" />
+        </label>
+      </div>
+
+    </div>
+
+    <select id="mapSelect">
+      <option></option>
+    </select>
+
+    <label>
+      Opacity
+      <input
+        id="mapOpacity"
+        type="range"
+        min="0"
+        max="1"
+        step="0.05"
+        value="1"
+      />
+    </label>
+
+    <button id="export" data-i18n="download">Download</button>
+    <button id="import" data-i18n="upload">Upload</button>
+    <input id="file" type="file" accept=".json,.geojson" hidden />
+
+    <select id="langSelect">
+      <option value="en">English</option>
+      <option value="uk">Українська</option>
+    </select>
+
+    <button class="icon">?</button>
+
+  </div>
+
+  <!-- BOTTOM LEFT STATUS -->
+  <div id="status">
+    lat: —<br />
+    lng: —<br />
+    elev: —
+  </div>
+
+  <!-- ✅ UNCHANGED: Leaflet loads first -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- ✅ UPDATED: Import refactored main.js as ES6 module -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+:root {
+  /* points */
+  --color-point: #e11;
+
+  /* lines */
+  --color-line: #e11;
+
+  /* polygons */
+  --color-polygon-fill: rgba(0, 128, 0, 0.25);
+  --color-polygon-stroke: #080;
+
+  /* sectors */
+  --color-sector-fill: rgba(10, 132, 255, 0.25);
+  --color-sector-stroke: #0a84ff;
+
+  /* labels */
+  --color-label: #000;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+/* map + canvas */
+
+#map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* toolbar */
+
+#toolbar {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background: white;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  gap: 6px;
+}
+
+.inside-toolbar{
+
+}
+
+/* status */
+
+#status {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  z-index: 10;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+
+
+.mode-options {
+  display: none;
+  gap: 6px;
+}
+
+
+
+#tool-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+
+  margin-top: 6px;
+  padding: 6px;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+  display: flex;
+  gap: 6px;
+}
